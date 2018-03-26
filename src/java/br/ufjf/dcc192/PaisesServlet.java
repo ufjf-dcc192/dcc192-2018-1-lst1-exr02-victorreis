@@ -9,11 +9,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,6 +65,7 @@ public class PaisesServlet extends HttpServlet {
                 out.println("<DT>" + pais + "</DT><DD>" + cor + "</DD>");
             });
             out.println("</DL>");
+            out.println("<hr>");
 
             if ("cor".equals(agrupa)) {
                 out.println("<DL>");
@@ -83,9 +81,8 @@ public class PaisesServlet extends HttpServlet {
                 this.cores.forEach((cor, paises) -> {
                     out.println("<DT>" + cor + "</DT>");
                     for (String pais : paises) {
-                        
+                        out.println("<DD>" + pais + "</DD>");
                     }
-                    out.println("<DD>" + paises + "</DD>");
                 });
                 out.println("</DL>");
             }
